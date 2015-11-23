@@ -332,3 +332,7 @@ function! InsertTabWrapper()
     endif
 endfunction
 
+" If in TMUX open a shell below
+nnoremap <leader>sh :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
+
+
