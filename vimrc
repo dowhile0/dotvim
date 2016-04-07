@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+"filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -48,10 +48,13 @@ Plugin 'ervandew/supertab'
 " General coding helpers
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
-Plugin 'lfilho/cosco.vim' " Add a ; at the end of line by pressing <leader> ;
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'airblade/vim-gitgutter'
 " Python plugins
 Plugin 'nvie/vim-flake8'
 " C/C++/ObjC Plugins
+Plugin 'lfilho/cosco.vim' " Add a ; at the end of line by pressing <leader> ;
 Plugin 'rhysd/vim-clang-format'
 " GoLang plugins
 Plugin 'fatih/vim-go'
@@ -290,16 +293,19 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" Set ultisnips triggers
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
+"""" Set ultisnips triggers
+"""let g:UltiSnipsExpandTrigger="<tab>"
+"""let g:UltiSnipsJumpForwardTrigger="<tab>"
+"""let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"""let g:UltiSnipsEditSplit="vertical"
 
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"""let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"""let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" Set YCM python interpreter
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 " Configure NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -314,7 +320,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:Tagbar") && b:Tagbar == "pri
 set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 set cursorline
 set cursorcolumn
-hi CursorLine   cterm=NONE ctermbg=235 ctermfg=white guibg=NONE guifg=NONE gui=underline
+hi CursorLine   cterm=NONE ctermbg=235 ctermfg=white guibg=NONE guifg=NONE gui=underline term=underline
 hi CursorColumn cterm=NONE ctermbg=235 ctermfg=white guifg=NONE
 set encoding=utf8
 set fillchars=vert:│
