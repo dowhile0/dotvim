@@ -49,4 +49,4 @@ let g:clang_c_completeopt = 'longest,menuone'
 
 " Set ColorColumn to 80 char, color DarkRed
 set colorcolumn=80
-hi ColorColumn cterm=NONE ctermbg=52 ctermfg=None
+hi ColorColumn cterm=NONE ctermbg=darkgrey ctermfg=None guibg=darkgrey
