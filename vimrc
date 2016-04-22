@@ -29,6 +29,7 @@ Plugin 'embear/vim-foldsearch'
 
 " Autocomplete (must be compiled)
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
 " Fugitive GIT plugin
 Plugin 'tpope/vim-fugitive'
 " Tagbar
@@ -46,6 +47,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
 
 " General coding helpers
+Plugin 'jeaye/color_coded'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
@@ -264,10 +266,10 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 
 let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_checkers = ['python']
+let g:syntastic_python_checkers = ['flake8', 'python']
 
 " Allow moving around between Tmux windows
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -302,10 +304,12 @@ endif
 " make YCM compatible with UltiSnips (using supertab)
 """let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 """let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+"""let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Set YCM python interpreter
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+" Auto load local ycm_extra_conf
+let g:ycm_confirm_extra_conf = 0
 
 " Configure NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -340,5 +344,3 @@ endfunction
 
 " If in TMUX open a shell below
 nnoremap <leader>sh :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
-
-
