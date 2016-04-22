@@ -18,6 +18,9 @@ set makeprg=make\ -C\ ../build\ -j9
 
 nnoremap <F4> :make!<cr>
 
+" Set YCM
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+
 " Set Clang-format
 let g:clang_format#code_style = "google"
 let g:clang_format#auto_format = 1
@@ -50,3 +53,4 @@ let g:clang_c_completeopt = 'longest,menuone'
 " Set ColorColumn to 80 char, color DarkRed
 set colorcolumn=80
 hi ColorColumn cterm=NONE ctermbg=darkgrey ctermfg=None guibg=darkgrey
+
