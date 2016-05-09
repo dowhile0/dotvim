@@ -296,7 +296,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-<<<<<<< HEAD
 """" Set ultisnips triggers
 """let g:UltiSnipsExpandTrigger="<tab>"
 """let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -312,18 +311,6 @@ endif
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 " Auto load local ycm_extra_conf
 let g:ycm_confirm_extra_conf = 0
-=======
-" Set ultisnips triggers
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"let g:UltiSnipsEditSplit="vertical"
-
-" make YCM compatible with UltiSnips (using supertab)
-"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-"let g:SuperTabDefaultCompletionType = '<C-n>'
->>>>>>> 3cc7eec653b7cdf39fff1c3f6accd1c845bc8a18
 
 " Configure NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -338,7 +325,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:Tagbar") && b:Tagbar == "pri
 set guifont=Meslo\ LG\ S\ DZ\ for\ Powerline:h14
 set cursorline
 set cursorcolumn
-<<<<<<< HEAD
 hi CursorLine   cterm=NONE ctermbg=235 ctermfg=white guibg=NONE guifg=NONE gui=underline term=underline
 hi CursorColumn cterm=NONE ctermbg=235 ctermfg=white guifg=NONE
 set encoding=utf8
