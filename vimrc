@@ -11,6 +11,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Colorscheme
 Plugin 'flazz/vim-colorschemes', {'name': 'colorschemes'}
+" Coloresque
+Plugin 'gorodinskiy/vim-coloresque.git', {'name': 'coloresque'}
 " Airline & Co.
 Plugin 'bling/vim-airline'
 Plugin 'paranoida/vim-airlineish'
@@ -341,6 +343,11 @@ function! InsertTabWrapper()
         return "\<c-p>"
     endif
 endfunction
+
+" Fix background color for molokai colorscheme
+if colors_name == "molokai"
+    hi Normal ctermbg=NONE guibg=NONE
+endif
 
 " If in TMUX open a shell below
 nnoremap <leader>sh :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
