@@ -112,15 +112,15 @@ set splitbelow
 set splitright
 
 " Auto resize Vim splits to active split
-set winwidth=84
-set winheight=5
-set winminheight=5
-set winheight=999
+"set winwidth=84
+"set winheight=5
+"set winminheight=5
+"set winheight=999
 
 " ================ Scrolling ========================
 
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
+set scrolloff=3         "Start scrolling when we're 3 lines away from margins
+set sidescrolloff=8
 set sidescroll=1
 
 "Toggle relative numbering, and set to absolute on loss of focus or insert mode
@@ -156,7 +156,6 @@ vnoremap <C-c> "*y
 map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 map <silent><C-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -291,15 +290,15 @@ if executable('ag')
 endif
 
 " Set ultisnips triggers
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"let g:UltiSnipsEditSplit="vertical"
 
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Configure NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -311,13 +310,13 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:Tagbar") && b:Tagbar == "pri
 
 " Cursor color
 "Set default font in mac vim and gvim
-set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+set guifont=Meslo\ LG\ S\ DZ\ for\ Powerline:h14
 set cursorline
 set cursorcolumn
-hi CursorLine   cterm=NONE ctermbg=235 ctermfg=white guibg=NONE guifg=NONE gui=underline
-hi CursorColumn cterm=NONE ctermbg=235 ctermfg=white guifg=NONE
+hi CursorLine   cterm=underline ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE gui=underline
+hi CursorColumn cterm=NONE ctermbg=235 ctermfg=NONE guifg=NONE
 set encoding=utf8
-set fillchars=vert:│
+set fillchars=vert:┃
 hi VertSplit ctermbg=NONE guibg=grey
 
 " Tab completion
