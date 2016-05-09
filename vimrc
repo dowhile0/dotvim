@@ -345,7 +345,7 @@ endfunction
 
 " Fix background color for molokai colorscheme
 if colors_name == "molokai"
-    hi Normal ctermbg=NONE guibg=NONE
+    hi Normal ctermbg=black guibg=black
 endif
 
 " If in TMUX open a shell below
