@@ -18,8 +18,8 @@ set makeprg=make\ -C\ ../build\ -j9
 
 nnoremap <F4> :make!<cr>
 
-" Set YCM
-let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+" Disable Syntastic (it uses YCM)
+let g:syntastic_disabled_filetypes=['c','cpp']
 
 " Set Clang-format
 let g:clang_format#code_style = "google"
@@ -45,12 +45,7 @@ autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
-" vim-clang conf
-let g:clang_c_options = '-std=gnu11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-let g:clang_c_completeopt = 'longest,menuone'
-
-" Set ColorColumn to 80 char, color DarkRed
+" Set ColorColumn to 80 char
 set colorcolumn=80
 hi ColorColumn cterm=NONE ctermbg=darkgrey ctermfg=None guibg=darkgrey
 

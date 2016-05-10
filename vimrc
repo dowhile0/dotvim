@@ -162,7 +162,10 @@ set pastetoggle=<F2> "F2 before pasting to preserve indentation
 vnoremap <C-c> "*y
 map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
-map <silent><C-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
+" map <silent><C-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
+" For the Mac
+vnoremap <D-c> "*y
+map <silent><D-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -250,12 +253,12 @@ let g:airline_powerline_fonts = 1
 
 set laststatus=2
 "let g:airline_theme = 'airlineish'
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'dark'
 let g:airline_powerline_fonts = 1 
 " Show buffer number
 let g:airline#extensions#tabline#buffer_nr_show = 1
 " Enable Syntastic
-let g:airline#extensions#syntastic = 1
+" let g:airline#extensions#syntastic = 1
 " Enable fugitive branch
 let g:airline#extensions#branch#enable = 1
 
@@ -264,13 +267,14 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-
-let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_checkers = ['flake8', 'python']
+" Disable syntastic (enable on a per filetype basis)
+let g:syntastic_check_on_open = 0
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_wq = 0
+" 
+" let g:syntastic_python_python_exec = '/usr/bin/python3'
+" let g:syntastic_python_checkers = ['flake8', 'python']
 
 " Allow moving around between Tmux windows
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -307,10 +311,42 @@ endif
 """let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 """let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" Set YCM python interpreter
+" YouCompleteMe options
+
+let g:ycm_register_as_syntastic_checker = 1 "default 1
+let g:Show_diagnostics_ui = 1 "default 1
+
+"will put icons in Vim's gutter on lines that have a diagnostic set.
+"Turning this off will also turn off the YcmErrorLine and YcmWarningLine
+"highlighting
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 1
+let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+
+let g:ycm_complete_in_strings = 1 "default 1
+let g:ycm_collect_identifiers_from_tags_files = 1 "default 0
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-" Auto load local ycm_extra_conf
-let g:ycm_confirm_extra_conf = 0
+
+let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+let g:ycm_server_log_level = 'info' "default info
+
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+let g:ycm_confirm_extra_conf = 1
+
+
+let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+let g:ycm_filetype_whitelist = { '*': 1 }
+let g:ycm_key_invoke_completion = '<C-Space>'
+
+" Set Warning/Error lines background
+hi YcmErrorLine guibg=#3f0000
+hi YcmWarningLine guibg=#3f3f00
+
+
+nnoremap <F11> :YcmForceCompileAndDiagnostics <CR>
+
 
 " Configure NERDTree
 map <C-n> :NERDTreeToggle<CR>
