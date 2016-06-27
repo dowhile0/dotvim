@@ -68,6 +68,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner.git'
 Plugin 'christoomey/vim-run-interactive'
 
+" Dash integration
+Plugin 'rizzatti/dash.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -123,6 +126,9 @@ set splitright
 "set winheight=5
 "set winminheight=5
 "set winheight=999
+
+" Enable :Man command
+source ~/.vim/ftplugin/man.vim
 
 " ================ Scrolling ========================
 
