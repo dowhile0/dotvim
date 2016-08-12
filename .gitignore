@@ -3,3 +3,6 @@ bundle/*
 !bundle/Vundle.git
 *swp 
 *pyc
+tags
+.vimtags
+.ctags

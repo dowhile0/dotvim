@@ -35,7 +35,8 @@ let g:clang_format#style_options = {
             \ "AlwaysBreakTemplateDeclarations" : "true",
             \ "IndentWidth": "2",
             \ "BreakBeforeBraces": "Linux",
-            \ "Standard" : "C++11"}
+            \ "Standard" : "C++11",
+            \ "NamespaceIndentation" : "NI_Inner"}
 
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
@@ -48,4 +49,9 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 " Set ColorColumn to 80 char
 set colorcolumn=80
 hi ColorColumn cterm=NONE ctermbg=darkgrey ctermfg=None guibg=darkgrey
-
+" Set tag colors
+hi cTypeTag term=underline gui=underline
+hi cEnumTag term=underline gui=underline
+hi cPreProcTag term=underline gui=underline
+hi cFunctionTag term=underline gui=underline
+hi cMemberTag term=underline gui=underline

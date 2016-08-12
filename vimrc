@@ -32,6 +32,8 @@ Plugin 'embear/vim-foldsearch'
 " Autocomplete (must be compiled)
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 " Fugitive GIT plugin
 Plugin 'tpope/vim-fugitive'
 " Tagbar
@@ -317,6 +319,21 @@ endif
 """let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 """let g:SuperTabDefaultCompletionType = '<C-n>'
 
+" vim-easytags global options
+let g:easytags_cmd = '/usr/local/bin/ctags'
+let g:easytags_file = './tags'
+let g:easytags_async = 1
+let g:easytags_updatetime_min = 1000
+let g:easytags_autorecurse = 1
+let g:easytags_include_members = 1
+
+let g:easytags_suppress_ctags_warning = 1
+
+"let g:easytags_events = ['BufWritePost', 'BufEnter']
+
+set tags=./tags
+let g:easytags_dynamic_files = 1
+
 " YouCompleteMe options
 
 let g:ycm_register_as_syntastic_checker = 1 "default 1
@@ -327,6 +344,9 @@ let g:Show_diagnostics_ui = 1 "default 1
 "highlighting
 let g:ycm_enable_diagnostic_signs = 1
 let g:ycm_enable_diagnostic_highlighting = 1
+hi YcmErrorSign guifg=red ctermfg=red
+hi YcmWarningSign guifg=yellow ctermfg=yellow
+
 let g:ycm_always_populate_location_list = 1 "default 0
 let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
 
@@ -340,7 +360,6 @@ let g:ycm_server_log_level = 'info' "default info
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
 let g:ycm_confirm_extra_conf = 1
-
 
 let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 let g:ycm_filetype_whitelist = { '*': 1 }
@@ -367,8 +386,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:Tagbar") && b:Tagbar == "pri
 set guifont=Meslo\ LG\ S\ DZ\ for\ Powerline:h14
 set cursorline
 set cursorcolumn
-hi CursorLine   cterm=NONE ctermbg=235 ctermfg=white guibg=NONE guifg=NONE gui=underline term=underline
-hi CursorColumn cterm=NONE ctermbg=235 ctermfg=white guifg=NONE
+hi CursorLine   cterm=NONE ctermbg=235 ctermfg=white guibg=gray15 guifg=NONE gui=NONE
+hi CursorColumn cterm=NONE ctermbg=235 ctermfg=white guifg=gray15 guifg=NONE gui=NONE
 set encoding=utf8
 set fillchars=vert:┃
 hi VertSplit ctermbg=NONE guibg=grey
