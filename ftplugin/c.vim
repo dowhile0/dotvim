@@ -46,6 +46,9 @@ autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
+" Easytags
+let g:easytags_autorecurse = 1
+
 " Set ColorColumn to 80 char
 set colorcolumn=80
 hi ColorColumn cterm=NONE ctermbg=darkgrey ctermfg=None guibg=darkgrey
