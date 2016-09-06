@@ -28,6 +28,8 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'ctrlpvim/ctrlp.vim'
 " FoldSearch
 Plugin 'embear/vim-foldsearch'
+" Swap list
+Plugin 'mjbrownie/swapit'
 
 " Autocomplete (must be compiled)
 Plugin 'Valloric/YouCompleteMe'
@@ -410,3 +412,16 @@ endif
 
 " If in TMUX open a shell below
 nnoremap <leader>sh :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
+
+" My functions
+function! Urldecode() range
+    silent! execute a:firstline . "," . a:lastline . 'perldo  s/\+/ /g'
+    silent! execute a:firstline . "," . a:lastline . 'perldo  s/%([A-Fa-f\d]{2})/chr hex $1/eg'
+endfunction
+
+function! Urlencode() range
+    silent! execute a:firstline . "," . a:lastline . 'perldo s/([^^A-Za-z0-9\-_.!~*'()])/ sprintf "%%%0x", ord $1 /eg'
+endfunction
+
+command! -range UrlDecode <line1>,<line2>call Urldecode()
+command! -range UrlEncode <line1>,<line2>call Urlencode()
