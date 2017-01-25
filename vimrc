@@ -14,8 +14,10 @@ Plugin 'flazz/vim-colorschemes', {'name': 'colorschemes'}
 " Coloresque
 Plugin 'gorodinskiy/vim-coloresque.git', {'name': 'coloresque'}
 " Airline & Co.
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'paranoida/vim-airlineish'
+Plugin '
 Plugin 'edkolev/promptline.vim'
 Plugin 'edkolev/tmuxline.vim'
 " NERDTree
