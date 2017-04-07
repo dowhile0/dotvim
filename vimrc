@@ -17,7 +17,6 @@ Plugin 'gorodinskiy/vim-coloresque.git', {'name': 'coloresque'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'paranoida/vim-airlineish'
-Plugin '
 Plugin 'edkolev/promptline.vim'
 Plugin 'edkolev/tmuxline.vim'
 " NERDTree
@@ -54,6 +53,9 @@ Plugin 'honza/vim-snippets'
 " supertab makes YCM compatible with ultisnips
 Plugin 'ervandew/supertab'
 
+" Buffer explorer
+Plugin 'jlanzarotta/bufexplorer'
+
 " General coding helpers
 Plugin 'jeaye/color_coded'
 Plugin 'tpope/vim-unimpaired'
@@ -77,6 +79,10 @@ Plugin 'christoomey/vim-run-interactive'
 " Dash integration
 Plugin 'rizzatti/dash.vim'
 
+" LaTeX
+Plugin 'vim-latex/vim-latex'
+Plugin 'xuhdev/vim-latex-live-preview'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -92,6 +98,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Facebook plugins:
+source ~/.vim/bundle/fb/filetype.vim
+source ~/.vim/bundle/fb/biggrep.vim
+
 if !has("gui_running")
     set term=xterm
 else
@@ -104,13 +114,23 @@ set secure
 let mapleader = " "
 
 " General TAB settings
-set tabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+
 set backspace=2   " Backspace deletes like most programs in insert mode
 set history=50
 set autoread      " Reload files changed outside vim
+
+set showmatch       " flash matching delimiters
+set autoindent      " carry indent over to new lines
+
+" Search
+set nohlsearch      " don't persist search highlighting
+set incsearch       " serch with typeahead
+
+set backspace=indent,eol,start  " backspace over everything
 
 "Allow usage of mouse in iTerm
 set ttyfast
@@ -325,7 +345,8 @@ endif
 
 " vim-easytags global options
 let g:easytags_cmd = '/usr/local/bin/ctags'
-let g:easytags_file = './tags'
+let g:easytags_file = '~/.vim/tags'
+let g:easytags_by_filetype = '~/.vim/tags'
 let g:easytags_async = 1
 let g:easytags_updatetime_min = 1000
 let g:easytags_include_members = 1
@@ -333,9 +354,8 @@ let g:easytags_include_members = 1
 let g:easytags_suppress_ctags_warning = 1
 
 "let g:easytags_events = ['BufWritePost', 'BufEnter']
-
-set tags=./tags
-let g:easytags_dynamic_files = 1
+" set tags=./tags
+" let g:easytags_dynamic_files = 1
 
 " YouCompleteMe options
 
