@@ -14,7 +14,12 @@ Plugin 'flazz/vim-colorschemes', {'name': 'colorschemes'}
 " Coloresque
 Plugin 'gorodinskiy/vim-coloresque.git', {'name': 'coloresque'}
 " Airline & Co.
+<<<<<<< HEAD
 Plugin 'bling/vim-airline'
+=======
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 Plugin 'paranoida/vim-airlineish'
 Plugin 'edkolev/promptline.vim'
 Plugin 'edkolev/tmuxline.vim'
@@ -28,6 +33,11 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'ctrlpvim/ctrlp.vim'
 " FoldSearch
 Plugin 'embear/vim-foldsearch'
+<<<<<<< HEAD
+=======
+" Swap list
+Plugin 'mjbrownie/swapit'
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 
 " Autocomplete (must be compiled)
 Plugin 'Valloric/YouCompleteMe'
@@ -50,6 +60,12 @@ Plugin 'honza/vim-snippets'
 " supertab makes YCM compatible with ultisnips
 Plugin 'ervandew/supertab'
 
+<<<<<<< HEAD
+=======
+" Buffer explorer
+Plugin 'jlanzarotta/bufexplorer'
+
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 " General coding helpers
 Plugin 'jeaye/color_coded'
 Plugin 'tpope/vim-unimpaired'
@@ -73,6 +89,13 @@ Plugin 'christoomey/vim-run-interactive'
 " Dash integration
 Plugin 'rizzatti/dash.vim'
 
+<<<<<<< HEAD
+=======
+" LaTeX
+Plugin 'vim-latex/vim-latex'
+Plugin 'xuhdev/vim-latex-live-preview'
+
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -88,6 +111,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+<<<<<<< HEAD
+=======
+" Facebook plugins:
+source ~/.vim/bundle/fb/filetype.vim
+source ~/.vim/bundle/fb/biggrep.vim
+
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 if !has("gui_running")
     set term=xterm
 else
@@ -100,14 +130,34 @@ set secure
 let mapleader = " "
 
 " General TAB settings
+<<<<<<< HEAD
 set tabstop=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+=======
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 set backspace=2   " Backspace deletes like most programs in insert mode
 set history=50
 set autoread      " Reload files changed outside vim
 
+<<<<<<< HEAD
+=======
+set showmatch       " flash matching delimiters
+set autoindent      " carry indent over to new lines
+
+" Search
+set nohlsearch      " don't persist search highlighting
+set incsearch       " serch with typeahead
+
+set backspace=indent,eol,start  " backspace over everything
+
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 "Allow usage of mouse in iTerm
 set ttyfast
 set mouse=a
@@ -321,18 +371,30 @@ endif
 
 " vim-easytags global options
 let g:easytags_cmd = '/usr/local/bin/ctags'
+<<<<<<< HEAD
 let g:easytags_file = './tags'
 let g:easytags_async = 1
 let g:easytags_updatetime_min = 1000
 let g:easytags_autorecurse = 1
+=======
+let g:easytags_file = '~/.vim/tags'
+let g:easytags_by_filetype = '~/.vim/tags'
+let g:easytags_async = 1
+let g:easytags_updatetime_min = 1000
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 let g:easytags_include_members = 1
 
 let g:easytags_suppress_ctags_warning = 1
 
 "let g:easytags_events = ['BufWritePost', 'BufEnter']
+<<<<<<< HEAD
 
 set tags=./tags
 let g:easytags_dynamic_files = 1
+=======
+" set tags=./tags
+" let g:easytags_dynamic_files = 1
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 
 " YouCompleteMe options
 
@@ -411,3 +473,19 @@ endif
 
 " If in TMUX open a shell below
 nnoremap <leader>sh :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
+<<<<<<< HEAD
+=======
+
+" My functions
+function! Urldecode() range
+    silent! execute a:firstline . "," . a:lastline . 'perldo  s/\+/ /g'
+    silent! execute a:firstline . "," . a:lastline . 'perldo  s/%([A-Fa-f\d]{2})/chr hex $1/eg'
+endfunction
+
+function! Urlencode() range
+    silent! execute a:firstline . "," . a:lastline . 'perldo s/([^^A-Za-z0-9\-_.!~*'()])/ sprintf "%%%0x", ord $1 /eg'
+endfunction
+
+command! -range UrlDecode <line1>,<line2>call Urldecode()
+command! -range UrlEncode <line1>,<line2>call Urlencode()
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5

@@ -46,6 +46,43 @@ autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
+<<<<<<< HEAD
+=======
+" Easytags
+let g:easytags_autorecurse = 1
+
+" C++ fold #includes and namespaces
+function! Fold_Includes(ln)
+  let cur_line = getline(a:ln)
+  let prev_line = getline(a:ln - 1)
+
+  " skip empty lines
+  let empty_regex = '^\s*$'
+  if cur_line =~ empty_regex
+    return -1
+  endif
+
+  if cur_line[:8] == '#include '
+    return (prev_line[:8] == '#include ' ||
+          \ prev_line =~ empty_regex) ? 1 : '>1'
+  endif
+
+  if cur_line[:9] == 'namespace '
+    return prev_line[:9] == 'namespace ' ? 1 : '>1'
+  endif
+
+  let end_ns_regex = '^}}*\s*//\s*namespace'
+  if cur_line =~ end_ns_regex
+    return prev_line =~ end_ns_regex ? 1 : '>1'
+  endif
+
+  return 0
+endfunction
+
+au FileType c,cpp setlocal foldexpr=Fold_Includes(v:lnum) foldmethod=expr
+
+
+>>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 " Set ColorColumn to 80 char
 set colorcolumn=80
 hi ColorColumn cterm=NONE ctermbg=darkgrey ctermfg=None guibg=darkgrey
