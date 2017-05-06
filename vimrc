@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+
 "filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -14,12 +15,8 @@ Plugin 'flazz/vim-colorschemes', {'name': 'colorschemes'}
 " Coloresque
 Plugin 'gorodinskiy/vim-coloresque.git', {'name': 'coloresque'}
 " Airline & Co.
-<<<<<<< HEAD
-Plugin 'bling/vim-airline'
-=======
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 Plugin 'paranoida/vim-airlineish'
 Plugin 'edkolev/promptline.vim'
 Plugin 'edkolev/tmuxline.vim'
@@ -33,15 +30,12 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'ctrlpvim/ctrlp.vim'
 " FoldSearch
 Plugin 'embear/vim-foldsearch'
-<<<<<<< HEAD
-=======
 " Swap list
 Plugin 'mjbrownie/swapit'
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 
 " Autocomplete (must be compiled)
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
+" Plugin 'Valloric/YouCompleteMe'
+ Plugin 'rdnetto/YCM-Generator'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 " Fugitive GIT plugin
@@ -51,23 +45,14 @@ Plugin 'majutsushi/tagbar'
 " Syntastics
 Plugin 'scrooloose/syntastic'
 
-" Snippets
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-
 " supertab makes YCM compatible with ultisnips
 Plugin 'ervandew/supertab'
 
-<<<<<<< HEAD
-=======
 " Buffer explorer
 Plugin 'jlanzarotta/bufexplorer'
 
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 " General coding helpers
-Plugin 'jeaye/color_coded'
+" Plugin 'jeaye/color_coded'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
@@ -89,13 +74,10 @@ Plugin 'christoomey/vim-run-interactive'
 " Dash integration
 Plugin 'rizzatti/dash.vim'
 
-<<<<<<< HEAD
-=======
 " LaTeX
 Plugin 'vim-latex/vim-latex'
 Plugin 'xuhdev/vim-latex-live-preview'
 
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -111,13 +93,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-<<<<<<< HEAD
-=======
 " Facebook plugins:
-source ~/.vim/bundle/fb/filetype.vim
-source ~/.vim/bundle/fb/biggrep.vim
+" source ~/.vim/bundle/fb/filetype.vim
+" source ~/.vim/bundle/fb/biggrep.vim
 
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 if !has("gui_running")
     set term=xterm
 else
@@ -130,24 +109,15 @@ set secure
 let mapleader = " "
 
 " General TAB settings
-<<<<<<< HEAD
-set tabstop=4
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-=======
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 set backspace=2   " Backspace deletes like most programs in insert mode
 set history=50
 set autoread      " Reload files changed outside vim
 
-<<<<<<< HEAD
-=======
 set showmatch       " flash matching delimiters
 set autoindent      " carry indent over to new lines
 
@@ -157,7 +127,6 @@ set incsearch       " serch with typeahead
 
 set backspace=indent,eol,start  " backspace over everything
 
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 "Allow usage of mouse in iTerm
 set ttyfast
 set mouse=a
@@ -371,30 +340,17 @@ endif
 
 " vim-easytags global options
 let g:easytags_cmd = '/usr/local/bin/ctags'
-<<<<<<< HEAD
-let g:easytags_file = './tags'
-let g:easytags_async = 1
-let g:easytags_updatetime_min = 1000
-let g:easytags_autorecurse = 1
-=======
 let g:easytags_file = '~/.vim/tags'
 let g:easytags_by_filetype = '~/.vim/tags'
 let g:easytags_async = 1
 let g:easytags_updatetime_min = 1000
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 let g:easytags_include_members = 1
 
 let g:easytags_suppress_ctags_warning = 1
 
 "let g:easytags_events = ['BufWritePost', 'BufEnter']
-<<<<<<< HEAD
-
-set tags=./tags
-let g:easytags_dynamic_files = 1
-=======
 " set tags=./tags
 " let g:easytags_dynamic_files = 1
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
 
 " YouCompleteMe options
 
@@ -473,8 +429,6 @@ endif
 
 " If in TMUX open a shell below
 nnoremap <leader>sh :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
-<<<<<<< HEAD
-=======
 
 " My functions
 function! Urldecode() range
@@ -488,4 +442,34 @@ endfunction
 
 command! -range UrlDecode <line1>,<line2>call Urldecode()
 command! -range UrlEncode <line1>,<line2>call Urlencode()
->>>>>>> 9c0f5adeebefc967d8ecfafcdb57fd23a0ea0ad5
+
+" Promptline configuration
+" sections (a, b, c, x, y, z, warn) are optional
+let g:promptline_preset = {
+        \'a' : [ promptline#slices#host() ],
+        \'b' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd({ 'dir_limit': 0 }) ],
+        \'y' : [ promptline#slices#vcs_branch({ 'hg': 1, 'git':1}) ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
+
+" available slices:
+"
+" promptline#slices#cwd() - current dir, truncated to 3 dirs. To configure: promptline#slices#cwd({ 'dir_limit': 4 })
+" promptline#slices#vcs_branch() - branch name only. By default, only git branch is enabled. Use promptline#slices#vcs_branch({ 'hg': 1, 'svn': 1, 'fossil': 1}) to enable check for svn, mercurial and fossil branches. Note that always checking if inside a branch slows down the prompt
+" promptline#slices#last_exit_code() - display exit code of last command if not zero
+" promptline#slices#jobs() - display number of shell jobs if more than zero
+" promptline#slices#battery() - display battery percentage (on OSX and linux) only if below 10%. Configure the threshold with promptline#slices#battery({ 'threshold': 25 })
+" promptline#slices#host() - current hostname.  To hide the hostname unless connected via SSH, use promptline#slices#host({ 'only_if_ssh': 1 })
+" promptline#slices#user()
+" promptline#slices#python_virtualenv() - display which virtual env is active (empty is none)
+" promptline#slices#git_status() - count of commits ahead/behind upstream, count of modified/added/unmerged files, symbol for clean branch and symbol for existing untraced files
+"
+" any command can be used in a slice, for example to print the output of whoami in section 'b':
+"       \'b' : [ '$(whoami)'],
+"
+" more than one slice can be placed in a section, e.g. print both host and user in section 'a':
+"       \'a': [ promptline#slices#host(), promptline#slices#user() ],
+"
+" to disable powerline symbols
+" `let g:promptline_powerline_symbols = 0`
+
