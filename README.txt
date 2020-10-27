@@ -1,4 +1,4 @@
-$ git clone https://github.com/dowhile0/dotvim
+$ git clone https://github.com/spidLL/dotvim
 Cloning into 'dotvim'...
 remote: Counting objects: 16, done.
 remote: Total 16 (delta 0), reused 0 (delta 0), pack-reused 16
